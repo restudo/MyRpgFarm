@@ -99,7 +99,7 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         inventoryItem.itemQuantity = 1;
         inventoryList.Add(inventoryItem);
 
-        DebugPrintInventoryList(inventoryList);
+        // DebugPrintInventoryList(inventoryList);
     }
 
     /// <summary>
@@ -114,18 +114,18 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         inventoryItem.itemCode = itemCode;
         inventoryList[position] = inventoryItem;
 
-        DebugPrintInventoryList(inventoryList);
+        // DebugPrintInventoryList(inventoryList);
     }
 
-    void DebugPrintInventoryList(List<InventoryItem> inventoryList)
-    {
-        foreach (InventoryItem inventoryItem in inventoryList)
-        {
-            Debug.Log("Item Desctiption : " + InventoryManager.Instance.GetItemDetails(inventoryItem.itemCode).itemDescription +
-             "  Item Quantity : " + inventoryItem.itemQuantity);
-        }
-        Debug.Log("=====================================");
-    }
+    // void DebugPrintInventoryList(List<InventoryItem> inventoryList)
+    // {
+    //     foreach (InventoryItem inventoryItem in inventoryList)
+    //     {
+    //         Debug.Log("Item Desctiption : " + InventoryManager.Instance.GetItemDetails(inventoryItem.itemCode).itemDescription +
+    //          "  Item Quantity : " + inventoryItem.itemQuantity);
+    //     }
+    //     Debug.Log("=====================================");
+    // }
 
     /// <summary>
     /// Find if an item code is already int the inventory. Return the item position
