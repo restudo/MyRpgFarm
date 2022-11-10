@@ -11,6 +11,9 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
     private float xInput, yInput;
     private int isWalking;
 
+    // camera
+    private Camera mainCamera;
+
     [Header("MoveController")]
     [SerializeField] private float moveSpeed;
 
@@ -24,7 +27,8 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
         facingRight = true;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-    
+        mainCamera = Camera.main;
+
         isWalking = Animator.StringToHash("isWalking");
     }
 
@@ -71,5 +75,10 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    public Vector3 GetPlayerViewPortPosition(){
+        // Vector3 viewport position for player (0,0) viewport bottom left, (1,1) viewport top right
+        return mainCamera.WorldToViewportPoint(transform.position);
     }
 }

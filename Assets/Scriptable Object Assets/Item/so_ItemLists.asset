@@ -30,7 +30,7 @@ MonoBehaviour:
     itemDescription: Pumpkin
     itemSprite: {fileID: 21300000, guid: f0d720006ae6c9e468cc99a9f1713ba1, type: 3}
     itemLongDescription: Haloween :)
-    itemUseGridRadius: 2
+    itemUseGridRadius: 4
     itemUseRadius: 0
     isStartingItem: 0
     canBePickedUp: 1
