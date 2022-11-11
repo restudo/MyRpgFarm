@@ -30,10 +30,668 @@ MonoBehaviour:
     itemDescription: Pumpkin
     itemSprite: {fileID: 21300000, guid: f0d720006ae6c9e468cc99a9f1713ba1, type: 3}
     itemLongDescription: Haloween :)
-    itemUseGridRadius: 4
+    itemUseGridRadius: 2
     itemUseRadius: 0
     isStartingItem: 0
     canBePickedUp: 1
     canBeDropped: 1
     canBeEaten: 0
     canBeCarried: 1
+  - itemCode: 1001
+    itemType: 2
+    itemDescription: Gembor
+    itemSprite: {fileID: 0}
+    itemLongDescription: Alat untuk menyiram tanaman
+    itemUseGridRadius: 1
+    itemUseRadius: 0
+    isStartingItem: 1
+    canBePickedUp: 1
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 1002
+    itemType: 3
+    itemDescription: Cangkul
+    itemSprite: {fileID: 0}
+    itemLongDescription: Alat untuk membajak tanah
+    itemUseGridRadius: 1
+    itemUseRadius: 0
+    isStartingItem: 1
+    canBePickedUp: 1
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 1003
+    itemType: 4
+    itemDescription: Kapak
+    itemSprite: {fileID: 0}
+    itemLongDescription: Alat untuk menebang
+    itemUseGridRadius: 1
+    itemUseRadius: 0
+    isStartingItem: 1
+    canBePickedUp: 1
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 1004
+    itemType: 5
+    itemDescription: Beliung
+    itemSprite: {fileID: 0}
+    itemLongDescription: Alat untuk menambang
+    itemUseGridRadius: 1
+    itemUseRadius: 0
+    isStartingItem: 1
+    canBePickedUp: 1
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 1005
+    itemType: 6
+    itemDescription: Arit
+    itemSprite: {fileID: 0}
+    itemLongDescription: Alat untuk menebas rumput
+    itemUseGridRadius: 2
+    itemUseRadius: 1.5
+    isStartingItem: 1
+    canBePickedUp: 1
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 1006
+    itemType: 7
+    itemDescription: Keranjang
+    itemSprite: {fileID: 0}
+    itemLongDescription: Alat untuk membawa hasil panen
+    itemUseGridRadius: 1
+    itemUseRadius: 0
+    isStartingItem: 1
+    canBePickedUp: 1
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 1101
+    itemType: 0
+    itemDescription: Bibit Padi
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim hujan, 2 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1102
+    itemType: 0
+    itemDescription: Bibit Jagung
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim kemarau, 2 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1103
+    itemType: 0
+    itemDescription: Bibit Lada
+    itemSprite: {fileID: 0}
+    itemLongDescription: 'Tanaman yang dapat tumbuh di semua musim, 4 hari untuk
+      tumbuh  '
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1104
+    itemType: 0
+    itemDescription: Bibit Cabai
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim kemarau, 6 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1105
+    itemType: 0
+    itemDescription: Bibit Tomat
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim kemarau, 5 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1106
+    itemType: 0
+    itemDescription: Bibit Labu
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim kemarau, 5 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1107
+    itemType: 0
+    itemDescription: Bibit Singkong
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim hujan, 7 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1108
+    itemType: 0
+    itemDescription: Bibit Kentang
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim hujan, 8 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1109
+    itemType: 0
+    itemDescription: Bibit Kapas
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim hujan, 12 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1110
+    itemType: 0
+    itemDescription: Bibit Kakao
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman yang dapat tumbuh di semua musim, 13 hari untuk
+      tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1111
+    itemType: 0
+    itemDescription: Bibit Binahong
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman yang dapat tumbuh di semua musim, 5 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1112
+    itemType: 0
+    itemDescription: Bibit Lidah Buaya
+    itemSprite: {fileID: 0}
+    itemLongDescription: 'Tanaman yang dapat tumbuh di semua musim, 5 hari untuk
+      tumbuh  '
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1113
+    itemType: 0
+    itemDescription: Bibit Jahe
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim hujan, 5 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1114
+    itemType: 0
+    itemDescription: Bibit Rosemary
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim kemarau, 5 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1115
+    itemType: 0
+    itemDescription: Bibit Temulawak
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim hujan, 5 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1116
+    itemType: 0
+    itemDescription: Bibit Temulawak
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman musim hujan, 5 hari untuk tumbuh
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1011
+    itemType: 1
+    itemDescription: Padi
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman yang dapat tumbuh di daerah tropis hingga sub tropis
+      kecuali benua antartika. Nama latin Oryza sativa.
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1012
+    itemType: 1
+    itemDescription: Jagung
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tanaman yang membutuhkan tempat lembab dan harus terpapar
+      sinar matahari agar menghasilkan panen yang baik. Nama latin Zea mays.
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1013
+    itemType: 1
+    itemDescription: Lada
+    itemSprite: {fileID: 0}
+    itemLongDescription: Disebut juga merica atau sahang, bersifat sedikit pahit,
+      pedas, hangat, dan antipiretik. Penyedap rasa yang sering dicari, nama latin
+      Piper nigrum.
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1014
+    itemType: 1
+    itemDescription: Cabai
+    itemSprite: {fileID: 0}
+    itemLongDescription: Memiliki banyak vitamin C serta mengandung kapsaisin. Nama
+      latin Capsicum frutescens.
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1015
+    itemType: 1
+    itemDescription: Tomat
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tooooooooomat. Nama latin Solanum lycopersicum.
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1016
+    itemType: 1
+    itemDescription: Labu
+    itemSprite: {fileID: 0}
+    itemLongDescription: Kuning, bulat, manis, dan bisa sedikit menyeramkan pada
+      bulan tertentu. Nama latin Cucurbita moschata
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1017
+    itemType: 1
+    itemDescription: SIngkong
+    itemSprite: {fileID: 0}
+    itemLongDescription: Nama latin Manihot esculenta.
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1018
+    itemType: 1
+    itemDescription: Kentang
+    itemSprite: {fileID: 0}
+    itemLongDescription: Nama latin Solanum tuberosum.
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1019
+    itemType: 1
+    itemDescription: Kapas
+    itemSprite: {fileID: 0}
+    itemLongDescription: Nama latin Gossypium hirsutum
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1020
+    itemType: 1
+    itemDescription: Kakao
+    itemSprite: {fileID: 0}
+    itemLongDescription: Cokelat, valentine, jomblo. Nama latin Theobroma cacao.
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1021
+    itemType: 1
+    itemDescription: Binahong
+    itemSprite: {fileID: 0}
+    itemLongDescription: Nama latin Anredera cordifolia
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1022
+    itemType: 1
+    itemDescription: Lidah Buaya
+    itemSprite: {fileID: 0}
+    itemLongDescription: Nama latin Aloe vera
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1023
+    itemType: 1
+    itemDescription: Jahe
+    itemSprite: {fileID: 0}
+    itemLongDescription: Nama latin Zingiber officinale
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 1
+    canBeCarried: 1
+  - itemCode: 1024
+    itemType: 1
+    itemDescription: Rosemary
+    itemSprite: {fileID: 0}
+    itemLongDescription: Nama latin Salvia rosmarinus
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1025
+    itemType: 1
+    itemDescription: Temulawak
+    itemSprite: {fileID: 0}
+    itemLongDescription: Nama latin Curcuma zanthorrhiza
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1026
+    itemType: 1
+    itemDescription: Kayu
+    itemSprite: {fileID: 0}
+    itemLongDescription: Hanya kayu biasa, mungkin ada fungsinya
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1027
+    itemType: 1
+    itemDescription: Batu
+    itemSprite: {fileID: 0}
+    itemLongDescription: Hanya batu biasa, mungkin ada fungsinya
+    itemUseGridRadius: 2
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 1
+    canBeDropped: 1
+    canBeEaten: 0
+    canBeCarried: 1
+  - itemCode: 1028
+    itemType: 8
+    itemDescription: Rumput Liar
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026"
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2001
+    itemType: 9
+    itemDescription: Kasur
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tempat untuk beristirahat, kamu bisa menyimpan kemajuan
+      permainan disini
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2002
+    itemType: 9
+    itemDescription: Lemari Buku
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2003
+    itemType: 9
+    itemDescription: Lemari Baju
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2004
+    itemType: 9
+    itemDescription: Lampu Tidur
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2005
+    itemType: 9
+    itemDescription: Cermin
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2006
+    itemType: 9
+    itemDescription: Toilet
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2007
+    itemType: 9
+    itemDescription: Tv
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2008
+    itemType: 9
+    itemDescription: Lukisan
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2009
+    itemType: 9
+    itemDescription: Meja
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2010
+    itemType: 9
+    itemDescription: Sofa
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u2026."
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2011
+    itemType: 9
+    itemDescription: Keset
+    itemSprite: {fileID: 0}
+    itemLongDescription: "\u201CWELCOME\u201D"
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2012
+    itemType: 9
+    itemDescription: Vas Bunga
+    itemSprite: {fileID: 0}
+    itemLongDescription: ....
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2013
+    itemType: 9
+    itemDescription: Jam
+    itemSprite: {fileID: 0}
+    itemLongDescription: Sekarang jam xx.xx
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0
+  - itemCode: 2014
+    itemType: 9
+    itemDescription: Dapur
+    itemSprite: {fileID: 0}
+    itemLongDescription: Tempat untuk memasak
+    itemUseGridRadius: 0
+    itemUseRadius: 0
+    isStartingItem: 0
+    canBePickedUp: 0
+    canBeDropped: 0
+    canBeEaten: 0
+    canBeCarried: 0

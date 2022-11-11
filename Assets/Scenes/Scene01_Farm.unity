@@ -8456,6 +8456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Acorn (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8442169413578256736, guid: 7a07a083fa7a466408f97b675a5bbf1c, type: 3}
+      propertyPath: _itemCode
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a07a083fa7a466408f97b675a5bbf1c, type: 3}
 --- !u!4 &1513077392 stripped
