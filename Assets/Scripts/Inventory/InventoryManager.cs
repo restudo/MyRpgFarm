@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InventoryManager : SingletonMonobehaviour<InventoryManager>
 {
+    private int maxStack = 3;
+
     private Dictionary<int, ItemDetails> itemDetailsDictionary;
 
     public List<InventoryItem>[] inventoryLists;
@@ -95,6 +97,8 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
     {
         InventoryItem inventoryItem = new InventoryItem();
 
+
+
         inventoryItem.itemCode = itemCode;
         inventoryItem.itemQuantity = 1;
         inventoryList.Add(inventoryItem);
@@ -113,6 +117,12 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         inventoryItem.itemQuantity = quantity;
         inventoryItem.itemCode = itemCode;
         inventoryList[position] = inventoryItem;
+
+
+        // else
+        // {
+        //     AddItemAtPosition(inventoryList, itemCode);
+        // }
 
         // DebugPrintInventoryList(inventoryList);
     }
@@ -139,11 +149,14 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         {
             if (inventoryList[i].itemCode == itemCode)
             {
-                return i;
+                if (inventoryList[i].itemQuantity != maxStack)
+                {
+                    return i;
+                }
             }
         }
-
         return -1;
+
     }
 
 
@@ -162,5 +175,43 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
             return null;
         }
 
+    }
+
+    /// <summary>
+    /// Remove an item from the inventory, and create a gameObject at the position it was dropped
+    /// </summary>
+    /// <param name="player"></param>
+    /// <param name="itemCode"></param>
+    internal void RemoveItem(InventoryLocation player, int itemCode)
+    {
+        List<InventoryItem> inventoryList = inventoryLists[(int)player];
+
+        // check if inventory already contains the item
+        int itemPosition = FindItemInInventory(player, itemCode);
+        if (itemPosition != -1)
+        {
+            RemoveItemAtPosition(inventoryList, itemCode, itemPosition);
+        }
+
+        // send event that inventory has been updated
+        EventHandler.CallInventoryUpdatedEvent(player, inventoryLists[(int)player]);
+    }
+
+    private void RemoveItemAtPosition(List<InventoryItem> inventoryList, int itemCode, int itemPosition)
+    {
+        InventoryItem inventoryItem = new InventoryItem();
+
+        int quantity = inventoryList[itemPosition].itemQuantity - 1;
+
+        if (quantity > 0)
+        {
+            inventoryItem.itemQuantity = quantity;
+            inventoryItem.itemCode = itemCode;
+            inventoryList[itemPosition] = inventoryItem;
+        }
+        else
+        {
+            inventoryList.RemoveAt(itemPosition);
+        }
     }
 }

@@ -10,6 +10,8 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
     private Vector2 moveDirection;
     private float xInput, yInput;
     private int isWalking;
+    private bool _playerInputIsDisabled = false;
+    public bool playerInputIsDisabled { get => _playerInputIsDisabled; set => _playerInputIsDisabled = value; }
 
     // camera
     private Camera mainCamera;
@@ -34,12 +36,19 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
 
     void Update()
     {
-        PlayerMovementInput();
+        if (!playerInputIsDisabled)
+        {
+            PlayerMovementInput();
+        }
     }
 
     void FixedUpdate() // physics
     {
-        PlayerMovement();
+        if (!playerInputIsDisabled)
+        {
+
+            PlayerMovement();
+        }
     }
 
     void PlayerMovementInput()
@@ -49,10 +58,12 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
 
         moveDirection = new Vector2(xInput, yInput).normalized;
 
-        if(xInput != 0 || yInput != 0){
+        if (xInput != 0 || yInput != 0)
+        {
             anim.SetBool(isWalking, true);
         }
-        else{
+        else
+        {
             anim.SetBool(isWalking, false);
         }
 
@@ -71,13 +82,35 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
         rb.MovePosition(rb.position + (moveDirection * moveSpeed * Time.fixedDeltaTime));
     }
 
+    public void DisablePlayerInputAndResetMovement()
+    {
+        DisablePlayerInput();
+        ResetMovement();
+    }
+
+    void ResetMovement()
+    {
+        rb.MovePosition(rb.position);
+        anim.SetBool(isWalking, false);
+    }
+
+    public void DisablePlayerInput()
+    {
+        playerInputIsDisabled = true;
+    }
+    public void EnablePlayerInput()
+    {
+        playerInputIsDisabled = false;
+    }
+
     void Flip()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
 
-    public Vector3 GetPlayerViewPortPosition(){
+    public Vector3 GetPlayerViewPortPosition()
+    {
         // Vector3 viewport position for player (0,0) viewport bottom left, (1,1) viewport top right
         return mainCamera.WorldToViewportPoint(transform.position);
     }
