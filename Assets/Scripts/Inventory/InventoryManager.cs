@@ -149,11 +149,9 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         {
             if (inventoryList[i].itemCode == itemCode)
             {
-                if (inventoryList[i].itemQuantity != maxStack)
-                {
-                    return i;
-                }
+                return i;
             }
+
         }
         return -1;
 

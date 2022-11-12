@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e45abcfa362a84797389e45530cbd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blankSprite: {fileID: 21300000, guid: 89c46045b5f23d840b62099f6f1f6344, type: 3}
+  blank16x16sprite: {fileID: 21300000, guid: 89c46045b5f23d840b62099f6f1f6344, type: 3}
   inventorySlot:
   - {fileID: 2167445433566346169}
   - {fileID: 740852072}
@@ -780,7 +780,7 @@ MonoBehaviour:
   - {fileID: 1616322524}
   - {fileID: 1828177158}
   - {fileID: 828550590}
-  InventoryBarDraggedItem: {fileID: 1210744461109865843, guid: bab19e0aa058e7745852b6d97b9142e7, type: 3}
+  inventoryBarDraggedItem: {fileID: 1182398751428994807, guid: 18b3f57d8f9d51743bef5459f58e1fae, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

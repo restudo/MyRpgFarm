@@ -1,8 +1,8 @@
+
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System;
+using UnityEngine.UI;
 
 public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -13,79 +13,98 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public Image inventorySlotHighlight;
     public Image inventorySlotImage;
     public TextMeshProUGUI textMeshProUGUI;
-
     [SerializeField] private UIInventoryBar inventoryBar = null;
-    [SerializeField] private GameObject itemPrefab = null;
     [HideInInspector] public ItemDetails itemDetails;
+    [SerializeField] private GameObject itemPrefab = null;
     [HideInInspector] public int itemQuantity;
 
-    void Start()
+    private void Start()
     {
         mainCamera = Camera.main;
         parentItem = GameObject.FindGameObjectWithTag(Tags.itemsParentTranform).transform;
+
     }
 
+    /// <summary>
+    /// Drops the item (if selected) at the current mouse position.  Called by the DropItem event.
+    /// </summary>
     private void DropSelectedItemAtMousePosition()
     {
         if (itemDetails != null)
         {
-            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, +10));
 
-            // create item from prefab at mouse position
+            Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z));
+
+            // Create item from prefab at mouse position
             GameObject itemGameObject = Instantiate(itemPrefab, worldPosition, Quaternion.identity, parentItem);
+
+            // get image
+            SpriteRenderer draggedItemImage = itemGameObject.GetComponentInChildren<SpriteRenderer>();
+            draggedItemImage.sprite = inventorySlotImage.sprite;
+
             Item item = itemGameObject.GetComponent<Item>();
             item.itemCode = itemDetails.itemCode;
 
-            // remove item from player inventory
+            // Remove item from players inventory
             InventoryManager.Instance.RemoveItem(InventoryLocation.player, item.itemCode);
+
+
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+
         if (itemDetails != null)
         {
-            // disable player input
+            // Disable keyboard input
             PlayerController.Instance.DisablePlayerInputAndResetMovement();
 
-            // instantiate gameobject from inventory bar ui
-            draggedItem = Instantiate(inventoryBar.InventoryBarDraggedItem, inventoryBar.transform);
+            // Instatiate gameobject as dragged item
+            draggedItem = Instantiate(inventoryBar.inventoryBarDraggedItem, inventoryBar.transform);
 
-            // get image
+            // Get image for dragged item
             Image draggedItemImage = draggedItem.GetComponentInChildren<Image>();
             draggedItemImage.sprite = inventorySlotImage.sprite;
+
+
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // follow mouse position
+        // move game object as dragged item
         if (draggedItem != null)
         {
+
             draggedItem.transform.position = Input.mousePosition;
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // destroy gameobject as dragged item
-        Destroy(draggedItem);
-
-        //if drag ends over inventory bar, get item drag is over and swap them
-        if (eventData.pointerCurrentRaycast.gameObject != null && eventData.pointerCurrentRaycast.gameObject.GetComponent<UIInventorySlot>() != null)
+        // Destroy game object as dragged item
+        if (draggedItem != null)
         {
+            Destroy(draggedItem);
 
-        }
-        //else attempt to drop the item if it can be drop
-        else
-        {
-            if (itemDetails.canBeDropped)
+            // If drag ends over inventory bar, get item drag is over and swap them
+            if (eventData.pointerCurrentRaycast.gameObject != null && eventData.pointerCurrentRaycast.gameObject.GetComponent<UIInventorySlot>() != null)
             {
-                DropSelectedItemAtMousePosition();
+
             }
+            // else attempt to drop the item if it can be dropped
+            else
+            {
+                if (itemDetails.canBeDropped)
+                {
+                    DropSelectedItemAtMousePosition();
+                }
+            }
+
+            // Enable player input
+            PlayerController.Instance.EnablePlayerInput();
         }
-
-        PlayerController.Instance.EnablePlayerInput();
-
     }
 }
+
