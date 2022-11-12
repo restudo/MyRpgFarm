@@ -6,6 +6,9 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
 {
     private int maxStack = 3;
 
+    private int[] selectedInventoryItem;    // the index of the array is the inventory List
+                                            // from the inventoriLocation enum,
+                                            // and the value is the capacity of that inventory List
     private Dictionary<int, ItemDetails> itemDetailsDictionary;
 
     public List<InventoryItem>[] inventoryLists;
@@ -26,6 +29,13 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
 
         //Create item details dictionary
         CreateItemDetailsDictionary();
+
+        // Initialise selected Inventory Item array
+        selectedInventoryItem = new int[(int)InventoryLocation.count];
+        for (int i = 0; i < selectedInventoryItem.Length; i++)
+        {
+            selectedInventoryItem[i] = -1;
+        }
     }
 
     void CreateInventoryLists()
@@ -77,6 +87,10 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         // Check if inventory already contains the item
         int itemPosition = FindItemInInventory(inventoryLocation, itemCode);
 
+        // if (inventoryList[(int)inventoryLocation].itemQuantity == maxStack)
+        // {
+        //     AddItemAtPosition(inventoryList, itemCode);
+        // }
         if (itemPosition != -1)
         {
             AddItemAtPosition(inventoryList, itemCode, itemPosition);
@@ -147,7 +161,11 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
 
         for (int i = 0; i < inventoryList.Count; i++)
         {
-            if (inventoryList[i].itemCode == itemCode)
+            if (inventoryList[i].itemQuantity == maxStack)
+            {
+                continue;
+            }
+            else if (inventoryList[i].itemCode == itemCode)
             {
                 return i;
             }
@@ -180,7 +198,7 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
     /// </summary>
     /// <param name="player"></param>
     /// <param name="itemCode"></param>
-    internal void RemoveItem(InventoryLocation player, int itemCode)
+    public void RemoveItem(InventoryLocation player, int itemCode)
     {
         List<InventoryItem> inventoryList = inventoryLists[(int)player];
 
@@ -211,5 +229,48 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         {
             inventoryList.RemoveAt(itemPosition);
         }
+    }
+
+    /// <summary>
+    /// Swap item at fromItem index with item at toItem index in inventoryLocation inventory List
+    /// </summary>
+    /// <param name="inventoryLocation"></param>
+    /// <param name="fromItem"></param>
+    /// <param name="toItem"></param>
+    public void SwapInventoryItem(InventoryLocation inventoryLocation, int fromItem, int toItem)
+    {
+        // if fromItem index and toItem index are within the bounds of the list, not the same, and greater than
+        // or equal to zero
+        if (fromItem < inventoryLists[(int)inventoryLocation].Count && toItem < inventoryLists[(int)inventoryLocation].Count
+            && fromItem != toItem && fromItem >= 0 && toItem >= 0)
+        {
+            InventoryItem fromInventoryItem = inventoryLists[(int)inventoryLocation][fromItem];
+            InventoryItem toInventoryItem = inventoryLists[(int)inventoryLocation][toItem];
+
+            inventoryLists[(int)inventoryLocation][toItem] = fromInventoryItem;
+            inventoryLists[(int)inventoryLocation][fromItem] = toInventoryItem;
+
+            // send event that inventory has been update
+            EventHandler.CallInventoryUpdatedEvent(inventoryLocation, inventoryLists[(int)inventoryLocation]);
+        }
+    }
+
+    /// <summary>
+    /// Set the selected inventory item for inventoryLocation to itemCode
+    /// </summary>
+    /// <param name="inventoryLocation"></param>
+    /// <param name="itemCode"></param>
+    public void SetSelectedInventoryItem(InventoryLocation inventoryLocation, int itemCode)
+    {
+        selectedInventoryItem[(int)inventoryLocation] = itemCode;
+    }
+
+    /// <summary>
+    /// Clear the selected inventory item for inventoryLocation
+    /// </summary>
+    /// <param name="inventoryLocation"></param>
+    public void ClearSelectedInventoryItem(InventoryLocation inventoryLocation)
+    {
+        selectedInventoryItem[(int)inventoryLocation] = -1;
     }
 }

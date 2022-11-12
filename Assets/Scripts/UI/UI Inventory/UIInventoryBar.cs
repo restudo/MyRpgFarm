@@ -37,6 +37,54 @@ public class UIInventoryBar : MonoBehaviour
         SwitchInventoryBarPosition();
     }
 
+
+    public void SetHighlightInventorySlots()
+    {
+        if (inventorySlot.Length > 0)
+        {
+            //loop trough inventory slots and clear highlight sprite
+            for (int i = 0; i < inventorySlot.Length; i++)
+            {
+                SetHighlightInventorySlots(i);
+            }
+        }
+    }
+
+    public void SetHighlightInventorySlots(int itemPosition)
+    {
+        if (inventorySlot.Length > 0 && inventorySlot[itemPosition].itemDetails != null)
+        {
+            if (inventorySlot[itemPosition].isSelected)
+            {
+                inventorySlot[itemPosition].inventorySlotHighlight.color = new Color(1f, 1f, 1f, 1f);
+
+                InventoryManager.Instance.SetSelectedInventoryItem(InventoryLocation.player, inventorySlot[itemPosition].itemDetails.itemCode);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Clear all HIghligth
+    /// </summary>
+    public void ClearHighlightOnInventorySlots()
+    {
+        if (inventorySlot.Length > 0)
+        {
+            //loop trough inventory slots and clear highlight sprite
+            for (int i = 0; i < inventorySlot.Length; i++)
+            {
+                if (inventorySlot[i].isSelected)
+                {
+                    inventorySlot[i].isSelected = false;
+                    inventorySlot[i].inventorySlotHighlight.color = new Color(0f, 0f, 0f, 0f);
+
+                    // Update inventory
+                    InventoryManager.Instance.ClearSelectedInventoryItem(InventoryLocation.player);
+                }
+            }
+        }
+    }
+
     private void ClearInventorySlots()
     {
         if (inventorySlot.Length > 0)
@@ -49,6 +97,8 @@ public class UIInventoryBar : MonoBehaviour
                 inventorySlot[i].textMeshProUGUI.text = "";
                 inventorySlot[i].itemDetails = null;
                 inventorySlot[i].itemQuantity = 0;
+
+                SetHighlightInventorySlots(i);
 
             }
         }
@@ -80,6 +130,8 @@ public class UIInventoryBar : MonoBehaviour
                             inventorySlot[i].textMeshProUGUI.text = inventoryList[i].itemQuantity.ToString();
                             inventorySlot[i].itemDetails = itemDetails;
                             inventorySlot[i].itemQuantity = inventoryList[i].itemQuantity;
+
+                            SetHighlightInventorySlots(i);
 
                         }
                     }
@@ -117,4 +169,5 @@ public class UIInventoryBar : MonoBehaviour
             IsInventoryBarPositionBottom = false;
         }
     }
+
 }
