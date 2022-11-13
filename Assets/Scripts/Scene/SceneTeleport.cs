@@ -9,7 +9,7 @@ public class SceneTeleport : MonoBehaviour
     [SerializeField] private Vector3 scenePositionGoto = new Vector3();
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         PlayerController player = collision.GetComponent<PlayerController>();
 

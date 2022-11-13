@@ -50,7 +50,7 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             GameObject itemGameObject = Instantiate(itemPrefab, worldPosition, Quaternion.identity, parentItem);
 
             // get image
-            SpriteRenderer draggedItemImage = itemGameObject.GetComponentInChildren<SpriteRenderer>();
+            SpriteRenderer draggedItemImage = itemGameObject.GetComponent<SpriteRenderer>();
             draggedItemImage.sprite = inventorySlotImage.sprite;
 
             Item item = itemGameObject.GetComponent<Item>();
