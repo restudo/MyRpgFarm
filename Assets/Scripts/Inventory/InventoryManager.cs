@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class InventoryManager : SingletonMonobehaviour<InventoryManager>
 {
-    private int maxStack = 3;
-
     private int[] selectedInventoryItem;    // the index of the array is the inventory List
                                             // from the inventoriLocation enum,
                                             // and the value is the capacity of that inventory List
@@ -131,25 +129,7 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         inventoryItem.itemQuantity = quantity;
         inventoryItem.itemCode = itemCode;
         inventoryList[position] = inventoryItem;
-
-
-        // else
-        // {
-        //     AddItemAtPosition(inventoryList, itemCode);
-        // }
-
-        // DebugPrintInventoryList(inventoryList);
     }
-
-    // void DebugPrintInventoryList(List<InventoryItem> inventoryList)
-    // {
-    //     foreach (InventoryItem inventoryItem in inventoryList)
-    //     {
-    //         Debug.Log("Item Desctiption : " + InventoryManager.Instance.GetItemDetails(inventoryItem.itemCode).itemDescription +
-    //          "  Item Quantity : " + inventoryItem.itemQuantity);
-    //     }
-    //     Debug.Log("=====================================");
-    // }
 
     /// <summary>
     /// Find if an item code is already int the inventory. Return the item position
@@ -161,11 +141,7 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
 
         for (int i = 0; i < inventoryList.Count; i++)
         {
-            if (inventoryList[i].itemQuantity == maxStack)
-            {
-                continue;
-            }
-            else if (inventoryList[i].itemCode == itemCode)
+            if (inventoryList[i].itemCode == itemCode)
             {
                 return i;
             }
@@ -174,7 +150,6 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
         return -1;
 
     }
-
 
     /// <summary>
     /// Return the itemDetails (from SO_ItemList) for the itemcode, or null if the itemCode doesn't exist
@@ -204,6 +179,7 @@ public class InventoryManager : SingletonMonobehaviour<InventoryManager>
 
         // check if inventory already contains the item
         int itemPosition = FindItemInInventory(player, itemCode);
+
         if (itemPosition != -1)
         {
             RemoveItemAtPosition(inventoryList, itemCode, itemPosition);

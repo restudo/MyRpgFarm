@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-public static class Settings 
+public static class Settings
 {
     // Npc Animation Parameters
     public static int idle;
@@ -9,6 +9,9 @@ public static class Settings
     // player Inventory
     public static int playerInitialInventoryCapacity = 24;
     public static int playerMaximumInventoryCapacity = 48;
+
+    // Time system
+    public const float secondsPerGameSecond = 0.012f;
 
     // // static constructor
     // static Settings()

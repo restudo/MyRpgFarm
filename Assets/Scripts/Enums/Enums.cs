@@ -1,6 +1,15 @@
-﻿public enum InventoryLocation{
+﻿public enum InventoryLocation
+{
     player,
     chest,
+    count
+}
+
+public enum Season
+{
+    Dry,
+    Rainy,
+    none,
     count
 }
 
@@ -19,7 +28,8 @@ public enum Direction
     none
 }
 
-public enum ItemType{
+public enum ItemType
+{
     Seed,
     Commodity,
     Watering_tool,
