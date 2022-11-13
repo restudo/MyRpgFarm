@@ -1,4 +1,11 @@
-﻿public enum InventoryLocation
+﻿public enum SceneName
+{
+    Scene01_Farm,
+    Scene02_Field,
+    Scene03_House
+}
+
+public enum InventoryLocation
 {
     player,
     chest,

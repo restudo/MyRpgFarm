@@ -39,6 +39,8 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
         if (!playerInputIsDisabled)
         {
             PlayerMovementInput();
+
+            PlayerTestInput();
         }
     }
 
@@ -80,6 +82,15 @@ public class PlayerController : SingletonMonobehaviour<PlayerController>
     void PlayerMovement()
     {
         rb.MovePosition(rb.position + (moveDirection * moveSpeed * Time.fixedDeltaTime));
+    }
+
+    private void PlayerTestInput()
+    {
+        // Test scene unload / load
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneControllerManager.Instance.FadeAndLoadScene(SceneName.Scene01_Farm.ToString(), transform.position);
+        }
     }
 
     public void DisablePlayerInputAndResetMovement()
